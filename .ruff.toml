@@ -1,0 +1,62 @@
+# 排除常用的忽略目录
+exclude = [
+    ".git",
+    ".ruff_cache",
+    ".vscode",
+    "__pypackages__",
+    "build",
+    "dist",
+]
+
+include = [
+    ".ruff.toml",
+    "src/**/*.py"
+]
+
+# 行长度限制
+line-length = 200
+
+# 缩进字符数
+indent-width = 4
+
+# 假设是 Python 3.9
+# target-version = "py39"
+
+
+[lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+# 规则选择
+select = ["E4", "E7", "E9", "F"]
+# 忽略的检查规则
+ignore = []
+
+# 允许修复所有已启动的规则(当提供--fix选项时)
+fixable = ["ALL"]
+# 不允许使用的规则
+# 为了方便代码测试,暂时禁用自动删除未使用的import功能 ("F" = 禁用自动删除未使用的 import)
+unfixable = ["F"]
+
+# 当下划线作为前缀时,允许使用未定义的变量
+# dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+
+[format]
+# 使用单引号 (Black use double quotes for strings)
+quote-style = "single"
+
+# 制表符使用tab (Black indent with spaces)
+indent-style = "tab"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# 文档字符串中启用代码示例的自动格式化
+docstring-code-format = true
+
+# 文档字符串长度
+docstring-code-line-length = "dynamic"
